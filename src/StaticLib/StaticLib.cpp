@@ -45,26 +45,27 @@ bool quick_sort(item* begin, const item* end)
 
 	item* head = begin;
 	item* tail = begin + length - 1;
-	int pivot = median(head, length); // begin->key;//
+	int pivot = median(head, length);
 
 	bool touch = false;
 	while (!touch) {
 		for (; head->key < pivot; head++);
 		for (; tail->key >= pivot && tail > head; tail--);
-		int l = tail - head;
 
 		if (head == tail) {
 			touch = true;
-			if (head + 1 == end)
-				head--;
-			else
+			if (head == begin)
 				tail++;
+			else
+				head--;
 		}
 
 		if(head < tail && head->key > tail->key) {
 			item tmp = *head;
 			*head = *tail;
 			*tail = tmp;
+			if (head + 1 == tail)
+				touch = true;
 		}
 	}
 	
