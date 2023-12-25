@@ -11,18 +11,25 @@ int median(item* head, int len) {
 	};
 	
 	if (array[0] < array[1]) {
-		if (array[0] < array[2] && array[1] < array[2])
+
+		if (array[1] < array[2])
 			return array[1];
-		else if (array[0] > array[2] && array[1] > array[2])
+
+		else if (array[2] < array[0])
 			return array[0];
+
 		else
 			return array[2];
 	}
 	else {
-		if (array[1] < array[2] && array[0] < array[2])
+		//array[1] < array[0]
+
+		if (array[0] < array[2])
 			return array[0];
-		else if (array[1] > array[2] && array[0] > array[2])
+
+		else if (array[2] < array[1])
 			return array[1];
+
 		else
 			return array[2];
 	}
