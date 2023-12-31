@@ -18,15 +18,21 @@ bool quick_sort(item* begin, const item* end)//配列と要素集
 
 	int pivot = end - begin;
 		
+
 	if (p <= q)//大きかったら何する？右に寄せたい。
 	{
+		n++;
+	}
+	else//右のほうが小さいから入れ替えて右を大きくしよう。
+	{
+		item tmp = *p;
+		*p = *q;
+		*q = tmp;
 
-		n++;//次みたい
+		n++;
 	}
 		
-	item tmp = *p;
-	*p = *q;
-	*q = tmp;
+	
 	
 	
 	
