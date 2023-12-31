@@ -4,9 +4,31 @@
 #include "../include/lib_func.h"
 
 // クイックソート(引数が不適切であればfalseを返す)
-bool quick_sort(item* begin, const item* end)
+bool quick_sort(item* begin, const item* end)//配列と要素集
 {
 	// ToDo: クイックソートで並び替えてください
 
-	return false;
+	int n = 1;
+
+	item* p = begin; //軸
+	item* q = begin + n;//軸のn個先
+	
+	if (begin == NULL || end < begin)
+		return false;
+
+	int pivot = end - begin;
+		
+	if (p <= q)//大きかったら何する？右に寄せたい。
+	{
+
+		n++;//次みたい
+	}
+		
+	item tmp = *p;
+	*p = *q;
+	*q = tmp;
+	
+	
+	
+	return true;
 }
