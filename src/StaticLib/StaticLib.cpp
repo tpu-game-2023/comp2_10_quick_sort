@@ -2,13 +2,6 @@
 #include "Windows.h"                    // Windows API の機能定義
 
 #include "../include/lib_func.h"
-void swap(item* p, item* q)
-{
-	item temp;
-	temp = *p;
-	*p = *q;
-	*q = temp;
-}
 // クイックソート(引数が不適切であればfalseを返す)
 bool quick_sort(item* begin, const item* end)
 {
