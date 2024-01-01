@@ -4,9 +4,10 @@
 #include "../include/lib_func.h"
 void Swap(item* p1,item* p2)
 {
-	item temp = *p1;
-	*p1 = *p2;
-	*p2 = temp;
+	item temp;
+	memcpy(&temp, p1, sizeof(item));
+	memcpy(p1, p2, sizeof(item));
+	memcpy(p2, &temp, sizeof(item));
 }
 void Sort(item* begin, const item* end)
 {
@@ -48,13 +49,13 @@ void Sort(item* begin, const item* end)
 			next--;
 		if (prev > next)
 		{
-			Sort(begin, &begin[next]);
-			Sort(&begin[prev], &begin[end - begin]);
-			return;
+			break;
 		}
 		else
 			Swap(&begin[prev], &begin[next]);
 	}
+	Sort(begin, &begin[next]);
+	Sort(&begin[prev], end-1);
 	return;
 }
 // クイックソート(引数が不適切であればfalseを返す)
