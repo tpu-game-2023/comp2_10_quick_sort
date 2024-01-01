@@ -11,51 +11,51 @@ void Swap(item* p1,item* p2)
 }
 void Sort(item* begin, const item* end)
 {
-	if (begin == NULL || end - begin < 1)
+	if (begin == NULL ||end == NULL|| end - begin < 1)
 		return;
-	int pivot = begin[0].key;
-	for (int i = 0; i < end - begin; i++)
+	int pivot = begin->key;
+	for (int i = 1; i < end - begin + 1; i++)
 	{
-		if (pivot != begin[i + 1].key)
+		if (pivot != (begin + i)->key)
 			break;
-		if (i == end - begin - 1)
+		if (begin + i == end)
 			return;
 	}
-	for (int i = 0; i < end - begin; i++)
+	for (int i = 1; i < end - begin + 1; i++)
 	{
-		if (pivot > begin[i + 1].key)
+		if (pivot > (begin + i)->key)
 			break;
-		if (i == end - begin - 1)
+		if (begin + i == end)
 		{
-			for (int j = 0; j < end - begin; j++)
+			for (int j = 1; j < end - begin + 1; j++)
 			{
-				if (pivot < begin[j + 1].key)
+				if (pivot < (begin + j)->key)
 				{
-					pivot = begin[j + 1].key;
+					pivot = (begin + j)->key;
 					break;
 				}
 			}
 		}
-		if (pivot != begin[0].key)
+		if (pivot != begin->key)
 			break;
 	}
 
 	int prev = 0, next = end - begin;
 	while (1)
 	{
-		while (begin[prev].key < pivot)
+		while ((begin + prev)->key < pivot)
 			prev++;
-		while (begin[next].key >= pivot)
+		while ((begin + next)->key >= pivot)
 			next--;
 		if (prev > next)
 		{
 			break;
 		}
 		else
-			Swap(&begin[prev], &begin[next]);
+			Swap((begin + prev), (begin + next));
 	}
-	Sort(begin, &begin[next]);
-	Sort(&begin[prev], end-1);
+	Sort(begin, begin + next);
+	Sort(begin + prev, end);
 	return;
 }
 // クイックソート(引数が不適切であればfalseを返す)
