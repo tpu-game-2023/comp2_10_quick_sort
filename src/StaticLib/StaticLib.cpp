@@ -15,6 +15,7 @@ typedef struct item_ {
 // クイックソート(引数が不適切であればfalseを返す)
 bool quick_sort(item* begin,item* end)
 {
+
 	if (begin == NULL || end == NULL || begin >= end)
 	{
 		return false;
@@ -58,3 +59,4 @@ bool quick_sort(item* begin,item* end)
     return true;
 
 }
+#endif 
