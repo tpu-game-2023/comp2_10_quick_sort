@@ -4,15 +4,14 @@
 #include "../include/lib_func.h"
 
 
-typedef struct item_
-{
+typedef struct item_ {
     int key;
-    char value[256]; 
-}item;
+    char value[256];
+} item;
 
 
 // クイックソート(引数が不適切であればfalseを返す)
-bool quick_sort(item* begin, const item* end)
+bool quick_sort(item* begin,item* end)
 {
 	if (begin == NULL || end == NULL || begin >= end)
 	{
