@@ -15,7 +15,7 @@ extern "C" {
 
 	// クイックソート(引数が不適切であればfalseを返す)
 	bool quick_sort(item *begin, const item* end);
-
+	void QSort(item* x, int left, int right);
 	// C++ でCのライブラリを使うときのおまじない
 #ifdef __cplusplus
 } // extern "C"
